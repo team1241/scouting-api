@@ -18,7 +18,9 @@ const EnvSchema = z.object({
   PORT: z.coerce.number().default(3000),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"]),
   DATABASE_URL: z.string(),
+  DEV_DATABASE_URL: z.string().optional(),
   DIRECT_URL: z.string(),
+  DEV_DIRECT_URL: z.string().optional(),
   UNKEY_ROOT_KEY: z.string(),
 });
 

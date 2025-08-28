@@ -4,7 +4,7 @@ import env from "../env.js";
 import * as schema from "./schema.js";
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
-const client = postgres(env.DATABASE_URL, { prepare: false });
+const client = postgres(env.DEV_DATABASE_URL ?? env.DATABASE_URL, { prepare: false });
 const db = drizzle({ client, schema });
 
 export default db;
