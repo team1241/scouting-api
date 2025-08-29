@@ -1,7 +1,7 @@
-import * as HttpStatusCodes from "stoker/http-status-codes";
-import * as HttpStatusPhrases from "stoker/http-status-phrases";
 import type { ScoutingAppRouteHandler } from "../../../lib/types.js";
 import type { ActiveSeasonRoute, ListSeasonRoute } from "./seasons.routes.js";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import * as HttpStatusPhrases from "stoker/http-status-phrases";
 
 import db from "../../../db/index.js";
 

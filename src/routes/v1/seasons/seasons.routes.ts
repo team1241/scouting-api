@@ -1,11 +1,10 @@
 import { createRoute, z } from "@hono/zod-openapi";
-import { notFoundSchema } from "../../../lib/constants.js";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent } from "stoker/openapi/helpers";
+import { notFoundSchema } from "../../../lib/constants.js";
+import { SeasonSchema } from "./schemas.js";
 
 const tags = ["Seasons"];
-
-const SeasonSchema = z.object({ id: z.number(), year: z.number(), gameName: z.string(), createdAt: z.string(), updatedAt: z.string(), isActive: z.boolean() });
 
 export const listSeasons = createRoute({
   path: "/seasons",

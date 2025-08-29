@@ -1,36 +1,12 @@
-import { z } from "zod";
 import { createRoute } from "@hono/zod-openapi";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent } from "stoker/openapi/helpers";
 import { createErrorSchema, IdParamsSchema } from "stoker/openapi/schemas";
-import { team } from "../../../db/schema.js";
+import { z } from "zod";
 import { notFoundSchema } from "../../../lib/constants.js";
+import { MatchCommentSchema, ScoutSchema } from "./schemas.js";
 
 const tags = ["Scouts"];
-
-const ScoutSchema = z.object({
-  id: z.number(),
-  grade: z.string().nullable(),
-  isActive: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  isAdmin: z.boolean(),
-  firstName: z.string().nullable(),
-  lastName: z.string().nullable(),
-  team: z.enum(team.enumValues).nullable(),
-  isSignupComplete: z.boolean(),
-  clerkId: z.string(),
-});
-
-const MatchCommentSchema = z.object({
-  id: z.number(),
-  eventId: z.number(),
-  scoutId: z.number(),
-  teamNumber: z.number(),
-  matchNumber: z.string(),
-  comment: z.string(),
-  timestamp: z.string(),
-});
 
 export const listScouts = createRoute({
   path: "/scouts",
