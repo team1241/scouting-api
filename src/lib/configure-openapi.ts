@@ -10,6 +10,13 @@ export default function configureOpenAPI(app: OpenAPIHono) {
     },
   });
 
+  app.openAPIRegistry.registerComponent("securitySchemes", "ApiKeyHeader", {
+    type: "apiKey",
+    name: "x-rhr-scouting-api-key",
+    in: "header",
+    description: "API key",
+  });
+
   app.get("/api-reference", Scalar({
     url: "/api-doc",
     theme: "bluePlanet",
@@ -18,6 +25,9 @@ export default function configureOpenAPI(app: OpenAPIHono) {
     defaultHttpClient: {
       targetKey: "js",
       clientKey: "fetch",
+    },
+    authentication: {
+      preferredSecurityScheme: "ApiKeyHeader",
     },
   }));
 }

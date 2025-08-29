@@ -22,6 +22,8 @@ const EnvSchema = z.object({
   DIRECT_URL: z.string(),
   DEV_DIRECT_URL: z.string().optional(),
   UNKEY_ROOT_KEY: z.string(),
+  POSTHOG_PUBLIC_KEY: z.string(),
+  LOCAL_DEV_API_KEY: z.string().optional(),
 });
 
 export type env = z.infer<typeof EnvSchema>;
