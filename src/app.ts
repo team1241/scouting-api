@@ -4,6 +4,7 @@ import configurePosthog from "./lib/configure-posthog.js";
 import configureUnkey from "./lib/configure-unkey.js";
 import createApp from "./lib/create-app.js";
 import images from "./routes/v1/images/images.index.js";
+import pitScouting from "./routes/v1/pit-scouting/pit-scouting.index.js";
 import scouts from "./routes/v1/scouts/scouts.index.js";
 import seasons from "./routes/v1/seasons/seasons.index.js";
 
@@ -15,7 +16,7 @@ configureUnkey(app);
 
 configurePosthog(app);
 
-const v1Routers = [seasons, scouts, images];
+const v1Routers = [seasons, scouts, images, pitScouting];
 
 v1Routers.forEach((route) => {
   app.route("/v1", route);
