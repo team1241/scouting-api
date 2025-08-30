@@ -37,7 +37,7 @@ export const getRobotImagesInYear = createRoute({
           name: "year",
           in: "query",
         },
-        example: 2025,
+        example: 2024,
         default: new Date().getFullYear(),
       }),
     }),
