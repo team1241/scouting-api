@@ -1,3 +1,8 @@
+import { Hono } from "hono";
 import app from "./app.js";
 
-export default app;
+const baseApp = new Hono();
+
+baseApp.route("/", app);
+
+export default baseApp;
