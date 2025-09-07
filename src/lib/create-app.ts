@@ -1,5 +1,4 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { requestId } from "hono/request-id";
 import { notFound, onError, serveEmojiFavicon } from "stoker/middlewares";
@@ -10,8 +9,7 @@ export function createRouter() {
 }
 
 export default function createApp() {
-  // const app = createRouter();
-  const app = new Hono();
+  const app = createRouter();
   app.use(serveEmojiFavicon("📊"));
   app.use(requestId());
   app.use(logger());
