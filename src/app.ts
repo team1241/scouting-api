@@ -10,11 +10,11 @@ import seasons from "./routes/v1/seasons/seasons.index.js";
 
 const app = createApp();
 
-configureOpenAPI(app);
+// configureOpenAPI(app);
 
-configureUnkey(app);
+// configureUnkey(app);
 
-configurePosthog(app);
+// configurePosthog(app);
 
 const v1Routers = [seasons, scouts, images, pitScouting];
 
